@@ -1,0 +1,109 @@
+# installation on ubuntu user
+    1  clear
+    2  sudo apt update
+    3  clear
+    4  sudo apt install apt-transport-https ca-certificates curl software-properties-common
+    5  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    6  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+    7  sudo apt install docker-ce
+    8  clear
+    9  sudo su
+# commands on root user
+    1  clear
+    2  docker --version
+    3  clear
+    4  docker ps
+    5  docker ps -a
+    6  docker image ls
+    7  docker images
+    8  docker run hello-world
+    9  docker images
+   10  docker inspect hello-world
+   11  clear
+   12  docker ps
+   13  docker ps -a
+   14  docker start caa4ab34bae6
+   15  docker ps -a
+   16  docker run --name test hello-world
+   17  docker pull centos
+   18  docker images
+   19  clear
+   20  docker ps -a
+   21  docker rm test caa4ab34bae6
+   22  docker ps -a
+   23  clear
+   24  docker run centos
+   25  docker ps -a
+   26  docker images
+   27  clar
+   28  clear
+   29  docker run --name myos -it centos /bin/bash
+   30  docker ps -a
+   31  docker run --name myos1 -it -d centos /bin/bash
+   32  docker ps
+   33  docker exec -it myos1 /bin/bash
+   34  clear
+   35  docker run nginx
+   36  clear
+   37  docker run -d nginx
+   38  docker ps
+   39  docker run --name web -d -p 80:80 nginx
+   40  docker ps
+   41  docker run --name web1 -d -P nginx
+   42  docker ps
+   43  clear
+   44  docker ps
+   45  docker rm web web1 myos1 e3bb170eecaf
+   46  docker stop web web1 myos1 e3bb170eecaf
+   47  docker rm web web1 myos1 e3bb170eecaf
+   48  docker ps -a
+   49  clear
+   50  docker volumes 
+   51  docker volume --help
+   52  docker volume create vol1
+   53  docker volume inspect vol1
+   54  clear
+   55  docker run -p 8080:8080 -p 50000:50000 -v vol1:/var/jenkins_home --name j1 jenkins/jenkis:lts
+   56  docker run -p 8080:8080 -p 50000:50000 -v vol1:/var/jenkins_home --name j1 jenkins/jenkins:lts
+   57  docker ps -a
+   58  docker rm j1 myos condescending_buck determined_bhaskara
+   59  clear
+   60  docker run -p 8080:8080 -p 50000:50000 -v vol1:/var/jenkins_home --name j1 -d jenkins/jenkins:lts
+   61  docker ps
+   62  docker exec -it j1 /bin/bash
+   63  docker run -p 9090:8080 -p 40000:40000 -v vol1:/var/jenkins_home --name j2 -d jenkins/jenkins:lts
+   64  docker stop j1 j2
+   65  docker rm j1 j2
+   66  docker volume ls
+   67  docker volume prune
+   68  clea
+   69  clear
+   70  docker run -p 8080:8080 -p 50000:50000 -v /home/ubuntu/test:/var/jenkins_home --name j1 -d jenkins/jenkins:lts
+   71  ls
+   72  cd test/
+   73  ls
+   74  docker volume ls
+   75  docker ps
+   76  docker ps -a
+   77  docker ps -adocker dasfrfls
+   78  clear
+   79  cd ..
+   80  clear
+   81  docker ps -a
+   82  docker rm j1
+   83  clsear
+   84  clear
+   85  docker networks --help
+   86  docker network --help
+   87  clear
+   88  docker network ls
+   89  docker network create --driver bridge frontend
+   90  docker network ls
+   91  docker run --name web -d --network host nginx
+   92  docker ps
+   93  ls
+   94  history 
+   95  ls
+   96  cd test/
+   97  ls
+   98  history > docker-commands-1.txt
