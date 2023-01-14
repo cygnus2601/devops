@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - block:
+        - name: Install apache on ubuntu
+          package: name=apache21 state=present
+
+        - name: Start Apache on ubuntu
+          service: name=apache2 state=started
+      when: ansible_os_family == "Debian"
+
+    - block:
+        - name: Install httpd on centos
+          package: name=httpd state=present
+
+        - name: Start httpd on centos
+          service: name=httpd state=started
+      when: ansible_os_family == "RedHat"

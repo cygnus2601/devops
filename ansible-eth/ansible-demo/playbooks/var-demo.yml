@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Var demo
+      package:
+        name: "{{ pkg_name }}"
+        state: present
+

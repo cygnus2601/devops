@@ -1,0 +1,46 @@
+    1  clear
+    2  docker --version
+    3  clear
+    4  docker ps
+    5  cd compose-demo/
+    6  docker-compose down
+    7  docker ps
+    8  docker stop 73d37678db9c 98a3152e3ecc
+    9  docker rm 73d37678db9c 98a3152e3ecc
+   10  clear
+   11  docker swarm init
+   12  docker node ls
+   13  docker swarm --help
+   14  docker swarm join-token worker
+   15  docker swarm join-token manager
+   16  docker node ls
+   17  clear
+   18  docker node --help
+   19  docker node ls
+   20  docker node promote mnbhddv8hpvltueqhloj8gj6v
+   21  docker node ls
+   22  docker node demote mnbhddv8hpvltueqhloj8gj6v
+   23  docker node ls
+   24  clear
+   25  docker service create --name web nginx
+   26  docker ps
+   27  docker service update --help
+   28  clear
+   29  docker service update --replicas 4 web
+   30  docker service ps
+   31  docker service ps web
+   32  docker service update --publish-add 80:80 web
+   33  docker service ps web
+   34  docker service update --image nginx:1.14 web
+   35  docker service ps web
+   36  docker service --rollback web
+   37  docker service rollback web
+   38  docker service --rollback web
+   39  docker service ps web
+   40  clear
+   41  docker service ls 
+   42  docker ps
+   43  docker service ls 
+   44  docker ps
+   45  cd
+   46  history > history.txt

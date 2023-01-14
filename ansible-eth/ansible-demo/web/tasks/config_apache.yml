@@ -1,0 +1,6 @@
+- name: config apache
+  lineinfile:
+    path: /etc/apache2/ports.conf
+    regexp: "^Listen 90"
+    line: "Listen 80"
+  notify: Restart Apache

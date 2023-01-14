@@ -1,0 +1,5 @@
+---
+# tasks file for web
+- include: install_apache.yml
+- include: config_apache.yml
+- include: deploy.yml

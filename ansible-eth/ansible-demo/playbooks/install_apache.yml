@@ -1,0 +1,30 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install apache
+      apt: name=apache2 state=present
+  
+    - name: REstart apache
+      service:
+        name: apache2
+        state: started 
+
+    - name: Install httpd
+      yum: name=httpd state=present
+      when: ansible_os_family == "RedHat"
+
+    - name: Delete files
+      shell: rm -rf /var/www/html/
+
+    - name: Deploy files
+      git:
+        repo: https://github.com/cygnus2601/test-repo.git
+        dest: /var/www/html/
+        force: true
+        update: yes
+      register: result
+
+    - debug:
+        var: result
+

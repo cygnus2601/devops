@@ -1,0 +1,30 @@
+pipeline {
+  agent any
+  stages {
+    stage('Get Code') {
+      steps {
+        git(url: 'https://github.com/cygnus2601/jenkin-test.git', poll: true, branch: 'main')
+      }
+    }
+
+    stage('Install packages') {
+      steps {
+        echo 'Install packages'
+        sh 'apt install apache2 -y'
+      }
+    }
+
+    stage('Start Services') {
+      steps {
+        echo 'Start Services'
+      }
+    }
+
+    stage('Deploy Website') {
+      steps {
+        echo 'Deploy Website'
+      }
+    }
+
+  }
+}

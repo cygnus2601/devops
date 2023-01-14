@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Change port
+      lineinfile:
+        path: /etc/apache2/ports.conf
+        regexp: "^Listen 80"
+        line: "Listen 90"
+      notify: Restart Apache
+  
+  handlers:
+    - name: Restart Apache
+      service: name=apache2 state=restarted
